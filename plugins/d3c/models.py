@@ -495,7 +495,7 @@ class DeviceFinding(NetBoxModel):
         blank=True,
         null=True,
         default='24',
-        verbose_name='IP Netmask'
+        verbose_name='IP Netmask (default 24)'
     )
     # InterfaceExtra
     is_router = models.CharField(

@@ -532,11 +532,14 @@ class FindingImportForm(forms.Form):
 
     title = "Importing DeviceFindings"
     fieldNames = ('source', 'confidence',
-                  'description', 'device_role', 'serial_number', 'device_name', 'status', 'site', 'rack', 'location',
-                  'device_type', 'serial_number', 'device_role', 'is_safety_critical',
+                  'device_name',
+                  'description', 'device_role', 'serial_number', 
+                  'exposure', 'is_safety_critical', 
                   'ip_address', 'ip_netmask', 'mac_address', 'network_protocol', 'transport_protocol', 'application_protocol', 'port',
-                  'is_router', 'manufacturer', 'oui', 'device_family', 'article_number', 'part_number',
-                  'hardware_version', 'hardware_cpe', 'software_name', 'is_firmware', 'version', 'exposure')
+                  'is_router',
+                  'status', 'site', 'rack', 'location',
+                  'manufacturer', 'device_type', 'device_family', 'part_number', 'oui',  
+                  'hardware_version', 'hardware_cpe', 'software_name', 'is_firmware', 'version')
     templates = {}
     csv_headers = {}
     csv_records = []
@@ -746,8 +749,9 @@ class CommunicationForm(NetBoxModelForm):
 
     class Meta:
         model = Communication
-        fields = ('id', 'source_ip_addr', 'source_ip_netmask', 'destination_ip_addr','destination_ip_netmask', 'destination_port',
-                  'network_protocol', 'transport_protocol', 'application_protocol')
+        fields = ('id', 'source_ip_addr', 'source_ip_netmask', 'destination_ip_addr',
+                  'destination_ip_netmask', 'destination_port', 'network_protocol',
+                  'transport_protocol', 'application_protocol')
 
 
 class CommunicationFilterForm(NetBoxModelFilterSetForm):
@@ -837,11 +841,15 @@ class DeviceFindingImportForm(NetBoxModelImportForm):
     class Meta:
         model = DeviceFinding
         fields = ('id', 'device', 'source', 'confidence',
-                  'description', 'device_role', 'serial_number', 'device_name', 'status', 'site', 'rack', 'location',
-                  'device_type', 'serial_number', 'device_role', 'is_safety_critical',
+                  'device_name',
+                  'description', 'device_role', 'serial_number', 
+                  'exposure', 'is_safety_critical', 
                   'ip_address', 'ip_netmask', 'mac_address', 'network_protocol', 'transport_protocol', 'application_protocol', 'port',
-                  'is_router', 'manufacturer', 'oui', 'device_family', 'article_number', 'part_number',
-                  'hardware_version', 'hardware_cpe', 'software_name', 'is_firmware', 'version', 'exposure',)
+                  'is_router',
+                  'status', 'site', 'rack', 'location',
+                  'manufacturer', 'device_type', 'device_family', 'part_number', 'oui',  
+                  'hardware_version', 'hardware_cpe', 'software_name', 'is_firmware', 'version')
+
 
     def clean_ip_netmask(self):
         if self.cleaned_data['ip_netmask']:

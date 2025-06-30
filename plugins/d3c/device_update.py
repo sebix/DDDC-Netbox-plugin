@@ -69,7 +69,7 @@ def create_and_assign_interface(device: Device, interface_name: str,
 
     if ip_address:
         ipaddr = IPAddress(address=ip_address, assigned_object=interface)
-        #### TODO
+        #### TODO check format of ipaddr (with or without netmask)
         ipaddr.save()
 
     if mac_address:

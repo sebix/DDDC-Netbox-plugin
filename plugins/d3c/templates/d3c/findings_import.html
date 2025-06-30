@@ -130,6 +130,16 @@
                     {% endif %}
                   {% endwith %}
                 </p>
+                <p>
+                  <label>
+                    <input type="text" id="text1" disabled>
+                    <input type="radio" name="option" onclick="DO SOMETHING">
+                    Adjust default for missing netmask
+                  </label>
+                  <br>
+                  If no netmask is explicitly provided in the import data, and no default is specified above,
+                  a netmask of 24 will be applied by default. If a different netmask is required, please adjust your data accordingly.
+                </p>
               </div>
             </div>
             {% for name in form.templates.values %}
